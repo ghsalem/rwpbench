@@ -12,7 +12,7 @@ include $(ORACLE_HOME)/precomp/lib/env_precomp.mk
 # OBJECT_SAMPLES is a list of the proc sample programs using the new
 # type features.  You must install ott in addition to proc to run some
 # of those samples.
-SAMPLES=oraunloader rwpbench rwpbench_mstr rwpbenchs
+SAMPLES=oraunloader rwpbench rwpbench_mstr rwpbenchs rwpbenchs_new rwpbenchs_lily
 
 # These targets build all of a class of samples in one call to make.
 samples: clean $(SAMPLES)
