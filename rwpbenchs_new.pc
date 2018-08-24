@@ -1,5 +1,5 @@
 /*******************************************************************
-	Program:	oraunloader_par.pc
+	Program:	rwpbench_new.pc
 	Author:		Ghassan Salem, Oracle Corp.
 	Purpose:	Fixed/Variable Format Data unloader. Unloads data from
 			a table into a file.
@@ -2211,12 +2211,12 @@ void get_v_data(
 {
 	char    Vqname[250], VVchar_prev_sql_id[30],saved_function_name[50],sql_exec_start[20],vcur_sql_id[30], v_SQL_PROFILE[65], 
 		v_SQL_PATCH[129], v_SQL_PLAN_BASELINE[129];
-	int  v_EXACT_MATCHING_SIGNATURE=0;
-	int v_FORCE_MATCHING_SIGNATURE=0;
+	char  v_EXACT_MATCHING_SIGNATURE[41];
+	char v_FORCE_MATCHING_SIGNATURE[41];
 	int     VVPrev_Exec_Id,debug_level=1<<12;
 	int v_instance=1;
 	long sql_plan_hash_value;
-	static int v_rows_inserted_into_rt=0;
+	static long int v_rows_inserted_into_rt=0;
 	char    v_PX_IS_CROSS_INSTANCE[2];
 	double		v_IO_CELL_OFFLOAD_ELIGIBLE_BYTES,
 		        v_px_servers_requested,
@@ -3624,8 +3624,8 @@ void check_create_tracking_tables(
 "SQL_PROFILE VARCHAR2 (64)",
 "SQL_PATCH VARCHAR2 (128)",
 "SQL_PLAN_BASELINE VARCHAR2 (128)",
-"EXACT_MATCHING_SIGNATURE NUMBER ",
-"FORCE_MATCHING_SIGNATURE NUMBER "};
+"EXACT_MATCHING_SIGNATURE varchar2(40) ",
+"FORCE_MATCHING_SIGNATURE  varchar2(40) "};
 	char    chCreate_Table[2500] = "CREATE TABLE RESPONSE_TIMES\
 			   (	query_name VARCHAR2(200),\
 				process_id number,\
